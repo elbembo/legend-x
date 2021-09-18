@@ -10,8 +10,6 @@
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js<?php echo esc_attr(mfn_user_os()); ?>" <?php mfn_tag_schema(); ?>>
-
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,10 +21,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/main.min.css?v=0.7">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/style.min.css?v=0.19">
+	<link rel="stylesheet" href="/assets/css/style.min.css?v=0.20">
 
-	<?php //wp_head(); 
-	?>
+	<?php //wp_head(); ?>
 	<script>
 		(function(h, o, t, j, a, r) {
 			h.hj = h.hj || function() {
@@ -44,7 +41,6 @@
 		})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 	</script>
 </head>
-
 <body>
 	<?php
 	// TO SHOW THE PAGE CONTENTS
@@ -60,7 +56,6 @@
 	endwhile; //resetting the page loop
 	wp_reset_query(); //resetting the page query
 	?>
-
 	<script src="/assets/js/jquery.js"></script>
 	<script src="/assets/js/popper.min.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>

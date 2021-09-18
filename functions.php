@@ -67,22 +67,18 @@ function legend_menu_shortcode($atts)
 	$nav_ele = "";
 	$nav_ele .= '<nav class="main-navigation">
 					<ul>';
-
-					foreach(wp_get_nav_menu_items($atts['menu']) as $mneu_item) { 
-						$nav_ele .= '<li><a href="'.$mneu_item->url.'" class="list-group-item list-group-item-action">'.$mneu_item->title.'</a></li>';
+					foreach(wp_get_nav_menu_items($atts['menu']) as $mneu_item) {
+						$nav_ele .= '<li><a href="'.$mneu_item->url.'" class="list-group-item list-group-item-action"><span>'.$mneu_item->title.'</span></a></li>';
 					}
 	$nav_ele .= 	'</ul>
 				</nav>';
   return $nav_ele;
 }
-
 add_shortcode('menu', 'legend_menu_shortcode');
 function legend_logo_shortcode($atts = null, $content = null)
 {
-	
   return get_the_content();
 }
-
 add_shortcode('logo', 'legend_logo_shortcode');
 // function bembo_nav_menu($nav){
 

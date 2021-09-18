@@ -12,8 +12,6 @@
       document.body.classList.add("nav-open") :
       document.body.classList.remove("nav-open") 
 
-    
-
   }, false);
   var slider = function (sliderElement) {
 
