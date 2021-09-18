@@ -62,23 +62,39 @@ function change_logo_class($html)
 	return $html;
 }
 // Function that will return our Wordpress menu
-function print_menu_shortcode($atts, $content = null)
+function legend_menu_shortcode($atts)
 {
-	extract(shortcode_atts(array('name' => null, 'class' => null), $atts));
-	return wp_nav_menu(array('menu' => $name, 'menu_class' => 'myclass', 'echo' => true));
+	$nav_ele = "";
+	$nav_ele .= '<nav class="main-navigation">
+					<ul>';
+
+					foreach(wp_get_nav_menu_items($atts['menu']) as $mneu_item) { 
+						$nav_ele .= '<li><a href="'.$mneu_item->url.'" class="list-group-item list-group-item-action">'.$mneu_item->title.'</a></li>';
+					}
+	$nav_ele .= 	'</ul>
+				</nav>';
+  return $nav_ele;
 }
 
-add_shortcode('menu', 'print_menu_shortcode');
-add_filter( 'wp_insert_post_data' , 'filter_post_data' , '99', 2 );
-
-function filter_post_data( $data , $postarr ) {
-	$menu_x = "";
-	$logo_x = get_custom_logo();
-	foreach(wp_get_nav_menu_items("legend-home") as $mneu_item) { 
-		$menu_x .= '<a href="'.$mneu_item->url.'" class="list-group-item list-group-item-action">'.$mneu_item->title.'</a>';
-	}
-	$data['post_content']= str_replace("[[MENU]]",$menu_x,$data['post_content']);
-	$data['post_content']= str_replace("[[LOGO]]",$logo_x,$data['post_content']);
-
-    return $data;
+add_shortcode('menu', 'legend_menu_shortcode');
+function legend_logo_shortcode($atts = null, $content = null)
+{
+	
+  return get_the_content();
 }
+
+add_shortcode('logo', 'legend_logo_shortcode');
+// function bembo_nav_menu($nav){
+
+// 	$nav_ele = "";
+// 	$nav_ele .= '<nav class="main-navigation">
+// 					<ul>';
+
+// 					foreach(wp_get_nav_menu_items($nav) as $mneu_item) { 
+// 						$nav_ele .= '<li><a href="'.$mneu_item->url.'" class="list-group-item list-group-item-action">'.$mneu_item->title.'</a></li>';
+// 					}
+// 	$nav_ele .= 	'</ul>
+// 				</nav>';
+//   return $nav_ele;
+
+// }
