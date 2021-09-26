@@ -10,56 +10,60 @@
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js<?php echo esc_attr(mfn_user_os()); ?>" <?php mfn_tag_schema(); ?>>
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php the_title(); ?></title>
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+	<!-- //////////////////// PWA manifest ////////////////////// -->
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="96x96" href="/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon.svg">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="msapplication-TileImage" content="/favicon.svg">
+	<meta name="theme-color" content="#000000">
+
+	<!-- //////////////////// END PWA manifest ////////////////////// -->
+	<?php //wp_head(); ?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/assets/css/main.min.css?v=0.7">
+	<link rel="stylesheet" href="/assets/css/main.min.css?v=0.10">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/style.min.css?v=0.20">
+	<link rel="stylesheet" href="/assets/css/style.min.css?v=0.26">
 
-	<?php //wp_head(); ?>
-	<script>
-		(function(h, o, t, j, a, r) {
-			h.hj = h.hj || function() {
-				(h.hj.q = h.hj.q || []).push(arguments)
-			};
-			h._hjSettings = {
-				hjid: 2608605,
-				hjsv: 6
-			};
-			a = o.getElementsByTagName('head')[0];
-			r = o.createElement('script');
-			r.async = 1;
-			r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-			a.appendChild(r);
-		})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-	</script>
+
+
 </head>
+
 <body>
 	<?php
 	// TO SHOW THE PAGE CONTENTS
 	while (have_posts()) : the_post();
 		$data = get_the_content();
-		// $menu_x = bembo_nav_menu("legend-home");
-		// $logo_x = get_custom_logo();
 
-		// $data = str_replace("[[MENU]]", $menu_x, $data);
-		// //$data['post_content']= str_replace("[[MENU2]]",$menu_xx,$data['post_content']);
-		// $data = str_replace("[[LOGO]]", $logo_x, $data);
 		echo do_shortcode($data);
 	endwhile; //resetting the page loop
 	wp_reset_query(); //resetting the page query
+	//wp_footer();
 	?>
-	<script src="/assets/js/jquery.js"></script>
-	<script src="/assets/js/popper.min.js"></script>
-	<script src="/assets/js/bootstrap.min.js"></script>
-	<script src="/assets/js/main.min.js?v=0.8"></script>
+
+	<script src="/assets/js/main.min.js?v=0.23"></script>
 </body>
 
 </html>

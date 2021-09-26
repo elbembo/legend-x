@@ -57,9 +57,11 @@ function change_logo_class($html)
 {
 
 	$html = str_replace('custom-logo', 'navbar-brand ', $html);
+	$html = str_replace('https://www.legendegy.com/wp-content/uploads', 'https://cdn.legendegy.com', $html);
 
 
 	return $html;
+
 }
 // Function that will return our Wordpress menu
 function legend_menu_shortcode($atts)
@@ -75,11 +77,17 @@ function legend_menu_shortcode($atts)
   return $nav_ele;
 }
 add_shortcode('menu', 'legend_menu_shortcode');
-function legend_logo_shortcode($atts = null, $content = null)
+function legend_logo_shortcode()
 {
-  return get_the_content();
+  return get_custom_logo();
 }
 add_shortcode('logo', 'legend_logo_shortcode');
+add_filter( 'pre_option_upload_url_path', 'upload_url' );
+
+function upload_url() {
+    return 'https://cdn.legendegy.com';
+}
+update_option('upload_url_path', 'https://cdn.legendegy.com');
 // function bembo_nav_menu($nav){
 
 // 	$nav_ele = "";
