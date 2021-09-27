@@ -39,15 +39,29 @@
 	<meta name="theme-color" content="#000000">
 
 	<!-- //////////////////// END PWA manifest ////////////////////// -->
-	<?php //wp_head(); ?>
+	<?php //wp_head(); 
+	?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/main.min.css?v=0.10">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/style.min.css?v=0.26">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<meta name="google-site-verification" content="uv_Fwp-Er1JvTcWivg_fur0T8qungSVtvBOsorglWWs" />
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_option('google_analytics_track_id') ?>">
+	</script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
 
+		gtag('config', '<?php echo get_option('google_analytics_track_id') ?>');
+	</script>
 
 </head>
 
@@ -64,6 +78,7 @@
 	?>
 
 	<script src="/assets/js/main.min.js?v=0.23"></script>
+	
 </body>
 
 </html>
